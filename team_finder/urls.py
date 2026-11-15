@@ -6,6 +6,9 @@ from django.conf.urls.static import static
 
 urlpatterns = [
     path("admin/", admin.site.urls),
+    path("", lambda request: redirect("projects:list")),
+    path("users/", include("users.urls")),
+    path("projects/", include("projects.urls")),
 ]
 
 if settings.DEBUG:
